@@ -1,8 +1,14 @@
 import Design from '../models/Design.js';
-
+const dummyUserId = '661b1a9c1e2f3d4a5b6c7d8e';
 export const getDesigns = async (req, res) => {
-  const designs = await Design.find({ user: req.user.id }).sort({ updatedAt: -1 });
-  res.status(200).json(designs);
+  try {
+    // Look up designs using the dummy ID instead of req.user._id
+    const designs = await Design.find({ user: dummyUserId }).sort({ updatedAt: -1 });
+    res.status(200).json(designs);
+  } catch (error) {
+    console.error("Fetch Designs Error:", error);
+    res.status(500).json({ message: 'Server Error' });
+  }
 };
 
 export const getDesignById = async (req, res) => {
@@ -14,13 +20,21 @@ export const getDesignById = async (req, res) => {
 
 export const createDesign = async (req, res) => {
   const { title, canvasData, thumbnailUrl } = req.body;
-  const design = await Design.create({
-    title: title || 'Untitled Design',
-    canvasData: canvasData || {},
-    thumbnailUrl: thumbnailUrl || '',
-    user: req.user.id,
-  });
-  res.status(201).json(design);
+
+  try {
+    const design = await Design.create({
+      title: title || 'Newresolutionstudio Project',
+      canvasData: canvasData || {},
+      thumbnailUrl: thumbnailUrl || '',
+      // THE FIX: Use the dummy ID here!
+      user: dummyUserId, 
+    });
+
+    res.status(201).json(design);
+  } catch (error) {
+    console.error("Create Design Error:", error);
+    res.status(500).json({ message: 'Failed to create design' });
+  }
 };
 
 export const updateDesign = async (req, res) => {
