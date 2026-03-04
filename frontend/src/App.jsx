@@ -1,17 +1,16 @@
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import Workspace from './pages/Workspace';
+import AuthPage from './pages/AuthPage'; 
 
 function App() {
   return (
     <Router>
       <Routes>
-        {/* The main gallery view */}
-        <Route path="/" element={<Dashboard/>} />
-        
-        {/* The dynamic route for the canvas editor. 
-            :id will either be 'new' or a MongoDB document ID */}
-        <Route path="/design/:id" element={<Workspace/>} />
+        <Route path="/auth" element={<AuthPage />} />
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/design/:id" element={<Workspace />} />
       </Routes>
     </Router>
   );

@@ -1,20 +1,32 @@
-import api from '../api/axios'; // Assuming api/axios.js is exactly as provided previously
+
+import { api } from '../store/useAuthStore'; 
 
 export const designService = {
+  
   getDesigns: async () => {
-    const res = await api.get('/designs');
-    return res.data;
+    const response = await api.get('/designs');
+    return response.data;
   },
+
+  
   getDesignById: async (id) => {
-    const res = await api.get(`/designs/${id}`);
-    return res.data;
+    const response = await api.get(`/designs/${id}`);
+    return response.data;
   },
-  saveDesign: async (data) => {
-    const res = await api.post('/designs', data);
-    return res.data;
+
+  
+  createDesign: async (designData) => {
+    const response = await api.post('/designs', designData);
+    return response.data;
   },
-  updateDesign: async (id, data) => {
-    const res = await api.put(`/designs/${id}`, data);
-    return res.data;
+
+  updateDesign: async (id, designData) => {
+    const response = await api.put(`/designs/${id}`, designData);
+    return response.data;
+  },
+
+  deleteDesign: async (id) => {
+    const response = await api.delete(`/designs/${id}`);
+    return response.data;
   }
 };

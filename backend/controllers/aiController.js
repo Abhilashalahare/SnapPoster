@@ -13,7 +13,7 @@ export const generateLayout = async (req, res) => {
   try {
     const model = genAI.getGenerativeModel({ 
       model: "gemini-2.5-flash",
-      // This forces Gemini to ONLY output pure JSON, no conversational text
+      
       generationConfig: {
         responseMimeType: "application/json",
       }
@@ -37,10 +37,10 @@ export const generateLayout = async (req, res) => {
     const result = await model.generateContent(fullPrompt);
     const textResponse = result.response.text();
 
-    // Safely parse the strict JSON
+   
     let layoutObjects = JSON.parse(textResponse);
     
-    // Safety check: If Gemini wrapped the array in an object (e.g., { objects: [...] }), extract it
+   
     if (!Array.isArray(layoutObjects) && layoutObjects.objects) {
       layoutObjects = layoutObjects.objects;
     }

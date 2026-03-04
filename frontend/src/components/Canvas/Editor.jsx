@@ -1,15 +1,14 @@
 import { useEffect, useRef } from 'react';
 import * as fabric from 'fabric';
 import useEditorStore from '../../store/useEditorStore';
-import { useCanvasHistory } from '../../hooks/useCanvasHistory';
-import TopBar from "../Toolbar/TopBar";
+import { useCanvasHistory } from '../../hooks/useCanvasHistory';;
 import SidePanel from "../Toolbar/SidePanel";
+import TopBar from '../Toolbar/Topbar';
 
 const Editor = ({ designId }) => {
   const canvasRef = useRef(null);
   const { canvas, setCanvas } = useEditorStore();
 
-  // 🎨 Initialize Fabric Canvas
   useEffect(() => {
     const initCanvas = new fabric.Canvas(canvasRef.current, {
       width: 800,
@@ -26,7 +25,6 @@ const Editor = ({ designId }) => {
     };
   }, [setCanvas]);
 
-  // 🔥 HISTORY IS CREATED HERE (ONLY ONCE)
   const history = useCanvasHistory(canvas);
 
   return (

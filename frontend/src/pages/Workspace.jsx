@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import useEditorStore from '../store/useEditorStore';
 import { designService } from '../services/designService';
 import Editor from '../components/Canvas/Editor';
+import AIGeneratorWidget from '../components/Toolbar/AIGeneratorWidget'; 
 
 const Workspace = () => {
   const { id } = useParams();
@@ -14,12 +15,11 @@ const Workspace = () => {
         try {
           const design = await designService.getDesignById(id);
           if (design?.canvasData) {
-            canvas.loadFromJSON(design.canvasData, () => {
-              canvas.renderAll();
-            });
+            await canvas.loadFromJSON(design.canvasData);
+            canvas.renderAll();
           }
         } catch (error) {
-          console.error('Failed to load design');
+          console.error('Failed to load design', error);
         }
       }
     };
@@ -28,8 +28,12 @@ const Workspace = () => {
   }, [canvas, id]);
 
   return (
-    <div className="h-screen w-full bg-gray-100">
+    
+    <div className="h-screen w-full bg-gray-100 relative"> 
       <Editor designId={id} />
+      
+      
+      <AIGeneratorWidget />
     </div>
   );
 };

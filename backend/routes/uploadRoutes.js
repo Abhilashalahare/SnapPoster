@@ -3,10 +3,10 @@ import multer from 'multer';
 import { v2 as cloudinary } from 'cloudinary';
 import dotenv from 'dotenv';
 
-// Load environment variables
+
 dotenv.config();
 
-// Give Cloudinary your "keys"
+
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
@@ -15,10 +15,8 @@ cloudinary.config({
 
 const router = express.Router();
 
-// Configure Multer
 const upload = multer({ storage: multer.memoryStorage() });
 
-// The unlocked upload route
 router.post('/', upload.single('image'), async (req, res) => {
   try {
     if (!req.file) {
@@ -26,7 +24,7 @@ router.post('/', upload.single('image'), async (req, res) => {
     }
 
     const uploadStream = cloudinary.uploader.upload_stream(
-      { folder: 'newresolutionstudio_posters' },
+      { folder: 'SnapPoster_posters' },
       (error, result) => {
         if (error) {
           console.error('Cloudinary Error:', error);

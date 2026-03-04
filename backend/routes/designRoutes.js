@@ -1,16 +1,16 @@
 import express from 'express';
 import { getDesigns, getDesignById, createDesign, updateDesign, deleteDesign } from '../controllers/designController.js';
+import { protect } from '../middlewares/authMiddleware.js'; 
 
 const router = express.Router();
 
-// The doors are 100% open. No security middleware here!
 router.route('/')
-  .get(getDesigns)
-  .post(createDesign);
+  .get(protect, getDesigns)
+  .post(protect, createDesign);
 
 router.route('/:id')
-  .get(getDesignById)
-  .put(updateDesign)
-  .delete(deleteDesign);
+  .get(protect, getDesignById)
+  .put(protect, updateDesign)
+  .delete(protect, deleteDesign);
 
 export default router;
