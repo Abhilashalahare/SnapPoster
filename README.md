@@ -9,13 +9,12 @@ A professional, full-stack application for generating, editing, and managing hig
 ## 📸 Example Poster Screenshots
 
 ### The Canvas Workspace
-![Workspace Dashboard](https://via.placeholder.com/800x400/e0e7ff/3730a3?text=SnapPoster+Canvas+Editor)
-*Advanced Fabric.js editor with dynamic property inspectors and an AI generation widget.*
+![Workspace Dashboard](./screenshots/dashboard.png)
 
 ### AI-Generated Layouts
 <div align="center">
-  <img src="https://via.placeholder.com/400x500/111827/a78bfa?text=AI+Cyber+Tech+Poster" alt="Cyber Tech Poster" width="45%" />
-  <img src="https://via.placeholder.com/400x500/fdf2f8/db2777?text=Minimal+Art+Exhibition" alt="Minimal Pink Poster" width="45%" />
+  <img src="./screenshots/poster1.png" alt="Tech Meetup Poster" width="45%" />
+  <img src="./screenshots/poster2.png" alt="Hiring Developers Poster" width="45%" />
 </div>
 *Posters generated entirely via Gemini AI prompts and rendered instantly on the HTML5 Canvas.*
 
