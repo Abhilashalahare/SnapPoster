@@ -3,7 +3,7 @@ import * as fabric from 'fabric';
 import useEditorStore from '../../store/useEditorStore';
 import { useCanvasHistory } from '../../hooks/useCanvasHistory';;
 import SidePanel from "../Toolbar/SidePanel";
-import TopBar from '../Toolbar/Topbar';
+import TopBar from '../Toolbar/TopBar';
 
 const Editor = ({ designId }) => {
   const canvasRef = useRef(null);
