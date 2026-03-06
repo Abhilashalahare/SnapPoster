@@ -9,12 +9,12 @@ A professional, full-stack application for generating, editing, and managing hig
 ## 📸 Example Poster Screenshots
 
 ### The Canvas Workspace
-![Workspace Dashboard](./dashboard.png)
+![Workspace Dashboard](./screenshots/dashboard.png)
 
 ### AI-Generated Layouts
 <div align="center">
-  <img src="./poster1.png" alt="Cyber Tech Poster" width="45%" />
-  <img src="./poster2.png" alt="Minimal Pink Poster" width="45%" />
+  <img src="./screenshots/poster1.png" alt="Tech Meetup Poster" width="45%" />
+  <img src="./screenshots/poster2.png" alt="Hiring Developers Poster" width="45%" />
 </div>
 *Posters generated entirely via Gemini AI prompts and rendered instantly on the HTML5 Canvas.*
 
