@@ -1,0 +1,313 @@
+{
+  "info": {
+    "_postman_id": "a6ede5ed-3e59-44bb-88c3-76f35840fcbe",
+    "name": "SnapPoster",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "43671521",
+    "_collection_link": "https://go.postman.co/collection/43671521-a6ede5ed-3e59-44bb-88c3-76f35840fcbe?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "signup",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Test Designer\",\r\n  \"email\": \"tt@gmail.com\",\r\n  \"password\": \"p123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"tt@gmail.com\",\r\n  \"password\": \"p123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create poster",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTgxY2JhYjE5NWI2MjYwZjg4Yzc1ZCIsImlhdCI6MTc3MjYyNTEwMiwiZXhwIjoxNzc1MjE3MTAyfQ.en7v1afAFQKo0n_hYOUAJZ0K-R0a2cNaj0NVS4oQaac",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"My Postman Test Poster\",\r\n  \"canvasData\": {\r\n    \"version\": \"6.0.0\",\r\n    \"objects\": [],\r\n    \"background\": \"#ffffff\"\r\n  },\r\n  \"thumbnailUrl\": \"https://via.placeholder.com/150\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/designs",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "designs"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get all posters",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTgxY2JhYjE5NWI2MjYwZjg4Yzc1ZCIsImlhdCI6MTc3MjYyNTEwMiwiZXhwIjoxNzc1MjE3MTAyfQ.en7v1afAFQKo0n_hYOUAJZ0K-R0a2cNaj0NVS4oQaac",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/designs",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "designs"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get poster by id",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTgxY2JhYjE5NWI2MjYwZjg4Yzc1ZCIsImlhdCI6MTc3MjYyNTEwMiwiZXhwIjoxNzc1MjE3MTAyfQ.en7v1afAFQKo0n_hYOUAJZ0K-R0a2cNaj0NVS4oQaac",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/designs/69aa92e934108b8656aa047a",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "designs",
+            "69aa92e934108b8656aa047a"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update a poster by id",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTgxY2JhYjE5NWI2MjYwZjg4Yzc1ZCIsImlhdCI6MTc3MjYyNTEwMiwiZXhwIjoxNzc1MjE3MTAyfQ.en7v1afAFQKo0n_hYOUAJZ0K-R0a2cNaj0NVS4oQaac",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Updated Title from Postman!\",\r\n  \"thumbnailUrl\": \"https://via.placeholder.com/300\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/designs/69aa92e934108b8656aa047a",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "designs",
+            "69aa92e934108b8656aa047a"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete poster by id",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTgxY2JhYjE5NWI2MjYwZjg4Yzc1ZCIsImlhdCI6MTc3MjYyNTEwMiwiZXhwIjoxNzc1MjE3MTAyfQ.en7v1afAFQKo0n_hYOUAJZ0K-R0a2cNaj0NVS4oQaac",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/designs/69aa92e934108b8656aa047a",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "designs",
+            "69aa92e934108b8656aa047a"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Upload image",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTgxY2JhYjE5NWI2MjYwZjg4Yzc1ZCIsImlhdCI6MTc3MjYyNTEwMiwiZXhwIjoxNzc1MjE3MTAyfQ.en7v1afAFQKo0n_hYOUAJZ0K-R0a2cNaj0NVS4oQaac",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "type": "file",
+              "uuid": "5909d6ac-e624-4811-ac47-39ac9d9a9cec",
+              "src": "/C:/Users/ASUS/Downloads/newresolutionstudio-export (1).png"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/upload",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "upload"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "AI generation",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"prompt\": \"Create a minimal poster for a tech meetup\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/ai/generate",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "ai",
+            "generate"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
